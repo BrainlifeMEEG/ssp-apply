@@ -1,5 +1,39 @@
 # Apply SSP Projectors
 
+<!-- brainlife-app:begin (generated from the App manifest; edit the manifest, not this block) -->
+
+> **Applies precomputed signal-space projection (SSP) projectors (for example ECG or EOG) to continuous MEG/EEG data with MNE-Python and saves the cleaned raw FIF.**
+
+Adds the projectors from the projection file to the raw data with add_proj and applies them with apply_proj, saving raw.fif, and makes a joint plot of the projectors against an ECG-evoked response. Use it after an App that computes SSP projectors to remove the artefact components from the data.
+
+| | |
+|---|---|
+| 📥 **Inputs** | `neuro/meeg/mne/raw` · `neuro/meeg/mne/projection` |
+| 📤 **Outputs** | `generic/image/png` · `neuro/meg/fif` |
+| 🐳 **Container** | `brainlifemeeg/mne:1.12.1` |
+| ⚙️ **Resources** | 8 CPUs |
+| 🔗 **Run it** | [doi.org/10.25663/brainlife.app.674](https://doi.org/10.25663/brainlife.app.674) |
+
+#### 📥 Inputs
+
+| Input | Datatype | Required | Description |
+|---|---|---|---|
+| `fif` | `neuro/meeg/mne/raw` | yes | Continuous MEG/EEG data (MNE raw FIF). |
+| `projection` | `neuro/meeg/mne/projection` | yes | Precomputed SSP projector file (.fif), for example from an ECG/EOG SSP App. |
+
+#### 📤 Outputs
+
+| Output | Datatype | Description |
+|---|---|---|
+| `out_figs` | `generic/image/png` | Joint plot (PNG) of the projectors and the ECG-evoked response. |
+| `out_dir` | `neuro/meg/fif` | Raw data (raw.fif) with the SSP projectors applied. |
+
+📚 **References used by this App:**
+- Hayashi S, Caron BA, Heinsfeld AS et al. brainlife.io: a decentralized and open-source cloud platform to support neuroscience research. Nat Methods 21:809-813 (2024). [doi:10.1038/s41592-024-02237-2](https://doi.org/10.1038/s41592-024-02237-2)
+- Gramfort A et al. MEG and EEG data analysis with MNE-Python. Frontiers in Neuroscience 7:267 (2013). [doi:10.3389/fnins.2013.00267](https://doi.org/10.3389/fnins.2013.00267)
+
+<!-- brainlife-app:end -->
+
 [![Run on Brainlife.io](https://img.shields.io/badge/Brainlife-bl.app.674-blue.svg)](https://doi.org/10.25663/brainlife.app.674)
 
 ## Description
